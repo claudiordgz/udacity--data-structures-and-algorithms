@@ -1,1 +1,41 @@
 # Unscramble Computer Science Problems
+
+Worst-Case Big-O Analysis
+
+## Task 0
+
+Task 0 retrieves elements by Index, and this has an O(1) constant time complexity. We perform a total of 9 operations not including the reading and parsing of the CSV files. 
+
+## Task 1
+
+Task 1 iterates once over N texts and once over M calls, it adds each is sending and receiving the number to a Set. After creating the set, we retrieve the count of elements. The total Operations are O(1 + 1 + 2N + 2M), we use itertools to fetch an iterator for each list to concatenate them instead of creating new ones. Per Python Documentation building the set has an O(1) Complexity per insertion. 
+
+The total Space Complexity is O(2N + 2M) since we might create a set with all the sending and receiving numbers from both lists. 
+
+Worst Case Complexity is O(N + M). 
+
+## Task 2
+
+Task 2 does not specify if we can assume if all the elements in our CSV are from September 2016, which they are. We use a dictionary to keep track of every number that has sent or received a call. The Dictionary defaults to 0 since we will be counting the seconds they spent answering or calling.
+
+We will count string parsing to int as one operation, but this operation might be more complex depending on the level it is being done.
+
+If we assume all dates are from 09/2016, we observe O(5 + 7N), assuming any date adds four more operations O(5 + 11N) to check the date. Both of them have a Worst Case Complexity of O(N) where N is the number of calls. 
+
+Our dictionary contains at most N*2 elements, assuming all numbers are different. Worst Case Space Complexity is O(N).
+
+## Task 3
+
+Task 3 builds a set of all the area codes called. We iterate over every call N, and then we perform operations on each number for a total of 9N in the worst case scenario. 
+
+After building our set, we use the sorted method to iterate over it and return a lexicographically sorted list. This operation will take O(N log N), the total complexity would be O (N + N log N). Worst case complexity is then O(NlogN).
+
+Space complexity is O(N) assuming all numbers called were called from a number from Bangalore.
+
+## Task 4
+
+Task 4 builds two Sets by iterating over all N calls and all M texts. To check if Set A (all telephone numbers making calls) exists in Set B (all numbers that send texts, receive texts, receive calls) we do a difference operation Set A - Set B which has a complexity of O(A) where A is all elements in Set A. 
+
+Summing those operations gives us O(2N + 2M + N), then we add our sorting process over the last set O(2N + 2M + N + NlogN), worst case complexity is O(N log N).
+
+Worst Space complexity is O(N + M) for our sets.
