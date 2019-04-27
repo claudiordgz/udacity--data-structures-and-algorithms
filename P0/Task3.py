@@ -43,3 +43,47 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
+
+def is_from_bangalore(phone_number):
+  return phone_number.startswith('(080)')
+
+def get_type_of_number(phone_number):
+  if "(" in phone_number:
+    return "fixed_line"
+  elif " " in phone_number:
+    return "mobile"
+  elif phone_number.startswith('140'):
+    return "telemarketer"
+  else: 
+    raise Exception("unkown phone type")
+
+def get_area_code(phone_number, t):
+
+  types = {
+    'fixed_line': lambda p_number: p_number[1:4],
+    'mobile': lambda p_number: p_number[0],
+    'telemarketer': lambda p_number: p_number[0:3]
+  }
+
+  return types[t](phone_number)
+
+numbers_called = set()
+all_calls_from_bangalore = 0
+calls_to_fixed_lines = 0
+for record in calls:
+  if is_from_bangalore(record[0]):
+    all_calls_from_bangalore += 1
+    type_of_call = get_type_of_number(record[1])
+    code = get_area_code(record[1], type_of_call)
+    if code == "080":
+      calls_to_fixed_lines += 1
+    numbers_called.add(code)
+numbers = sorted(numbers_called)
+
+print("The numbers called by people in Bangalore have codes:")
+print("\n".join(numbers))
+
+percentage=(float(calls_to_fixed_lines) / all_calls_from_bangalore) * 100
+print("{0:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(
+  percentage
+))
