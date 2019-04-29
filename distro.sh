@@ -1,8 +1,9 @@
 #!/bin/bash -ex
 
 function build_p0 {
-  rm -rf P0.zip
-  zip P0.zip P0/*.py P0/Analysis.txt
+  mkdir -p ./P0/dist
+  rm -rf ./P0/dist/submit.zip
+  zip ./P0/dist/submit.zip P0/*.py P0/Analysis.txt
 }
 
 if [ -z $1 ]
