@@ -1,6 +1,23 @@
+*jupytergraffiti*
+# Created by https://www.gitignore.io/api/python,jupyternotebook,jupyternotebooks
+# Edit at https://www.gitignore.io/?templates=python,jupyternotebook,jupyternotebooks
 
-# Created by https://www.gitignore.io/api/python
-# Edit at https://www.gitignore.io/?templates=python
+### JupyterNotebook ###
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Remove previous ipynb_checkpoints
+#   git rm -r .ipynb_checkpoints/
+#
+
+### JupyterNotebooks ###
+# gitignore template for Jupyter Notebooks
+# website: http://jupyter.org/
+
+
+# Remove previous ipynb_checkpoints
+#   git rm -r .ipynb_checkpoints/
+
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
@@ -126,7 +143,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
-# End of https://www.gitignore.io/api/python
 
 *.zip
