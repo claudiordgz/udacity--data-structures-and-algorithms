@@ -1,10 +1,19 @@
 #!/bin/bash -ex
 
-function build_p0 {
-  mkdir -p ./P0/dist
-  rm -rf ./P0/dist/submit.zip
-  zip ./P0/dist/submit.zip P0/*.py P0/Analysis.txt
+function build {
+  local project_dir=$1
+  mkdir -p ./$project_dir/dist
+  rm -rf ./$project_dir/dist/submit.zip
+  zip ./$project_dir/dist/submit.zip $project_dir/*.py $project_dir/Analysis.txt
 }
+
+function build_md {
+  local project_dir=$1
+  mkdir -p ./$project_dir/dist
+  rm -rf ./$project_dir/dist/submit.zip
+  zip ./$project_dir/dist/submit.zip $project_dir/*.py $project_dir/*.md
+}
+
 
 if [ -z $1 ]
 then
@@ -16,7 +25,10 @@ fi
 
 case "$PROJECT" in 
   P0)
-    build_p0
+    build P0
+    ;;
+  P1)
+    build_md P1
     ;;
   *) 
     echo "$PROJECT"
