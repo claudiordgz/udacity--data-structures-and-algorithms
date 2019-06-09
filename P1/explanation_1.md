@@ -14,4 +14,4 @@ When we search for the `min` we are breaking the rule of *All operations must ta
 
 It is very important not to do any form of looping in our `OrderedDict`.
 
-Right now we keep two dictionaries, one for the order and another for the cache. We can extend our `OrderedDict` to also track the value. There is a collection we could use already in Python doing `from collections import OrderedDict`. Using `OrderedDict` is good practice and supports regular `Dictionary` operations. These optimizations reduce our memory worst case to `O(capacity)` and our operations to `O(1)`.
+Right now we keep two dictionaries, one for the order and another for the cache. We can extend our `OrderedDict` to also track the value. There is a collection we could use already in Python doing `from collections import OrderedDict`. Using `OrderedDict` is good practice and supports regular `Dictionary` operations. These optimizations reduce our space complexity worst case to `O(capacity)` and our operation's time complexity to `O(1)`.

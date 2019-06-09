@@ -8,13 +8,13 @@ The first thing I did is doing the steps with sentences, building the tree on pa
 
 There was only one problem with this approach. I did not want to save the frequency on the node, because it was already on the queue. But if there were two elements with the same frequency, `heappush` would try to compare the next item, which was the node. I quickly found that you can do `(frequency, counter, node)` and the counter a number that always increases. This approach was also very similar to my on paper algorithm.
 
-The complexity for construction is `O((n)log(n))`.
+The time complexity for construction is `O((n)log(n))`, this includes the `O(log(n))` for queue operations and `O(n)` for sorting and initializing the queue. Space Complexity Worst Case is `O(n)` if all characters are different.
 
 ## Decoding
 
 But now I had another problem, is my tree correct? I copied the print tree function we implemented on the lessons and verified it was ok. And for the codes, I used a map that would have the char mapping to a binary string such as `0001`. Coding the data with this table was trivial. I navigated `O(k)` elements in the tree to retrieve each code, where `k` is the subset of `n`, and worst case is `k == n`.
 
-Decoding was similarly straightforward, I had some trouble iterating the tree correctly, but thanks to some debugging, I was able to find out that I was navigating incorrectly. I was delighted with the algorithm because decoding is `O(m)` where `m` is the length of the encoded message.
+Decoding was similarly straightforward, I had some trouble iterating the tree correctly, but thanks to some debugging, I was able to find out that I was navigating incorrectly. I was delighted with the algorithm because decoding has a Time Complexity of `O(m)` where `m` is the length of the encoded message, and Space Complexity is `O(m)` if we choose to load the entire code into memory.
 
 ## Conclusion
 
