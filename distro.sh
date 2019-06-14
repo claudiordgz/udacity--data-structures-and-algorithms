@@ -30,6 +30,9 @@ case "$PROJECT" in
   P1)
     build_md P1
     ;;
+  P1)
+    build_md P2
+    ;;
   *) 
     echo "$PROJECT"
     ;;

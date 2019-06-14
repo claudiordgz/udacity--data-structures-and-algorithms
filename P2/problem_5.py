@@ -97,7 +97,12 @@ def test_case_invalid(trie):
 
 
 test_case(MyTrie)
+# is correct for a?  True ['nthology', 'ntagonist', 'ntonym', 'nt']
+# is correct for f?  True ['unction', 'un', 'actory']
 
 test_case_longer(MyTrie)
+# is correct for tri?  True ['e', 'gger', 'gonometry', 'pod']
+# is correct for ant?  True ['hology', 'agonist', 'onym', '']
 
 test_case_invalid(MyTrie)
+# is c None?  True
