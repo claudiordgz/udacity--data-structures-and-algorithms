@@ -19,13 +19,15 @@ class RouteTrieNode:
 class RouteTrie:
 
     def __init__(self, handler):
-        # Initialize the trie with an root node and a handler, this is the root path or home page node
+        # Initialize the trie with an root node and a handler, this is the root
+        # path or home page node
         self.root = RouteTrieNode()
         self.root.set_handler(handler)
 
     def insert(self, list_of_words, handler):
         # Similar to our previous example you will want to recursively add nodes
-        # Make sure you assign the handler to only the leaf (deepest) node of this path
+        # Make sure you assign the handler to only the leaf (deepest) node of
+        # this path
         itr = self.root
         for word in list_of_words:
             itr = itr.children[word]
@@ -59,11 +61,12 @@ class RouteTrie:
         return lists
 
 
-# The Router class will wrap the Trie and handle 
+# The Router class will wrap the Trie and handle
 class Router:
     def __init__(self, root_handler, _404_handler):
         # Create a new RouteTrie for holding our routes
-        # You could also add a handler for 404 page not found responses as well!
+        # You could also add a handler for 404 page not found responses as
+        # well!
         self.trie = RouteTrie(root_handler)
         self.error_handler = _404_handler
 
@@ -90,7 +93,7 @@ class Router:
         return handler
 
     def split_path(self, path):
-        # you need to split the path into parts for 
+        # you need to split the path into parts for
         # both the add_handler and lookup functions,
         # so it should be placed in a function here
         _path = path if path[-1] != "/" else path[:-1]
@@ -105,24 +108,39 @@ class Router:
 def test_cases():
     # Here are some test cases and expected outputs you can use to test your implementation
     # create the router and add a route
-    router = Router("root handler", "not found handler") # remove the 'not found handler' if you did not implement this
+    # remove the 'not found handler' if you did not implement this
+    router = Router("root handler", "not found handler")
     router.add_handler("/home/about", "about handler")  # add a route
 
     # some lookups with the expected output
     handler = router.lookup("/")
-    print(handler, ', is correct?', handler == 'root handler')        # should print 'root handler'
+    # should print 'root handler'
+    print(handler, ', is correct?', handler == 'root handler')
     handler = router.lookup("/home")
-    print(handler, ', is correct?', handler == 'not found handler')   # should print 'not found handler' or None if you did not implement one
+    # should print 'not found handler' or None if you did not implement one
+    print(handler, ', is correct?', handler == 'not found handler')
     handler = router.lookup("/home/about")
-    print(handler, ', is correct?', handler == 'about handler')       # should print 'about handler'
+    # should print 'about handler'
+    print(handler, ', is correct?', handler == 'about handler')
     handler = router.lookup("/home/about/")
-    print(handler, ', is correct?', handler == 'about handler')       # should print 'about handler' or None if you did not handle trailing slashes
+    # should print 'about handler' or None if you did not handle trailing
+    # slashes
+    print(handler, ', is correct?', handler == 'about handler')
     handler = router.lookup("/home/about/me")
-    print(handler, ', is correct?', handler == 'not found handler')   # should print 'not found handler' or None if you did not implemen
+    # should print 'not found handler' or None if you did not implemen
+    print(handler, ', is correct?', handler == 'not found handler')
 
-    router.add_handler("/blog/2019-01-15/my-awesome-blog-post", "awesome blog post content")
+    router.add_handler(
+        "/blog/2019-01-15/my-awesome-blog-post",
+        "awesome blog post content")
     l = sorted(router.get_sitemap())
-    print(l, ' is correct?', l == ['/', '/blog/2019-01-15/my-awesome-blog-post', '/home/about'])
+    print(
+        l,
+        ' is correct?',
+        l == [
+            '/',
+            '/blog/2019-01-15/my-awesome-blog-post',
+            '/home/about'])
 
 
 test_cases()

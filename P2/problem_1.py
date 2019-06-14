@@ -47,6 +47,7 @@ def sqrt_division(number):
             end = midpoint - 1
     return -1
 
+
 def test_case(fn):
     print("Testing {}".format(fn.__name__))
     ans = fn(9)
@@ -62,7 +63,13 @@ def test_case(fn):
     ans = fn(32153)
     print("Pass" if (179 == ans) else "Fail", "input:", 32153, "answer: ", ans)
     ans = fn(384383846843438646)
-    print("Pass" if (619986973 == ans) else "Fail", "input:", 384383846843438646, "answer: ", ans)
+    print(
+        "Pass" if (
+            619986973 == ans) else "Fail",
+        "input:",
+        384383846843438646,
+        "answer: ",
+        ans)
 
 
 test_case(sqrt_multiplication)
@@ -84,14 +91,22 @@ test_case(sqrt_division)
 # Pass input: 32153 answer:  179
 # Pass input: 384383846843438646 answer:  619986973
 
+
 def test_multiplication():
     return sqrt_multiplication(384383846843438646)
+
 
 def test_division():
     return sqrt_division(384383846843438646)
 
 
-print(timeit.timeit("test_multiplication()", setup="from __main__ import test_multiplication"))
+print(
+    timeit.timeit(
+        "test_multiplication()",
+        setup="from __main__ import test_multiplication"))
 # ~ 20
-print(timeit.timeit("test_division()", setup="from __main__ import test_division"))
+print(
+    timeit.timeit(
+        "test_division()",
+        setup="from __main__ import test_division"))
 # ~ 16

@@ -13,6 +13,7 @@ def rotated_array_search(input_list, number):
     pivot_index = binary_search_of_pivot(input_list)
     return binary_search(input_list, number, pivot_index)
 
+
 def binary_search_of_pivot(input_list):
     if len(input_list) == 1:
         return 0
@@ -37,8 +38,9 @@ def binary_search_of_pivot(input_list):
             end = midpoint - 1
     return last_min_index
 
+
 def binary_search(input_list, number, pivot_index):
-    
+
     start = 0
     end = len(input_list) - 1
 
@@ -59,6 +61,7 @@ def linear_search(input_list, number):
         if element == number:
             return index
     return -1
+
 
 def test_function(test_case):
     input_list = test_case[0]
@@ -81,6 +84,7 @@ test_function([[6, 7, 8, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 10])
 # Pass
 
+
 def test_pivot_function(test_list, expected_pivot_value):
     pivot_index = binary_search_of_pivot(test_list)
     if test_list[pivot_index] == expected_pivot_value:
@@ -88,11 +92,12 @@ def test_pivot_function(test_list, expected_pivot_value):
     else:
         print("Fail")
 
-test_pivot_function([4,5,6,7,0,1,2], 0)
+
+test_pivot_function([4, 5, 6, 7, 0, 1, 2], 0)
 # Pass
-test_pivot_function([9,10,25,35,90,125,0,3,6,7,8], 0)
+test_pivot_function([9, 10, 25, 35, 90, 125, 0, 3, 6, 7, 8], 0)
 # Pass
-test_pivot_function([1,0], 0)
+test_pivot_function([1, 0], 0)
 # Pass
 test_pivot_function([0], 0)
 
