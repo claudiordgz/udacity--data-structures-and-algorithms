@@ -6,4 +6,12 @@ for e.g. [1, 2, 3, 4, 5]
 
 The expected answer would be [531, 42]. Another expected answer can be [542, 31]. In scenarios such as these when there are more than one possible answers, return any one.
 
-Here is some boilerplate code and test cases to start with:
+# Solution
+
+We can obtain `O((n) * log(n))` by using Heapsort or Mergesort, the disadvantage of mergesort being using `O(n)` space. I tried a Max Heap to start, but instead of sorting it, I would remove the max and apply down heapify to rebalance. 
+
+Once I had a working idea, I tried using mergesort. 
+
+Both solutions worked and abode by the constraints of the problem. I implemented down heapify using a Queue to get some practice with it. 
+
+Overall I liked implementing with mergesort better, but both solutions are appropriate.

@@ -1,3 +1,5 @@
+# Solution
+
 ## Trie
 
 First we need to implement a slightly different Trie than the one we used for autocomplete. Instead of simple words the Trie will contain a part of the http path at each node, building from the root node /
